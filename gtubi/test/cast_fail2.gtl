@@ -1,0 +1,4 @@
+(fun f : (int -> int) -> int.
+      (f (fun x : int. x)))
+(fun g: ? -> int. 
+   (g true))

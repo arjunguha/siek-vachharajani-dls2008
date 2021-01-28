@@ -1,0 +1,3 @@
+let w : bool = true in
+let y = w in
+  ((fun x : int. x) y)

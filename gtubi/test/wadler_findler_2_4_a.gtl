@@ -1,0 +1,8 @@
+let
+   x = true
+in let 
+   f = fun y : int. y
+in let
+   h = (fun gt : (int->int) -> int. gt) (fun g. g (g x))
+in 
+   h f

@@ -1,0 +1,4 @@
+fun h : a -> b -> int.
+  fun f : a -> a.
+      fun g : b -> b.
+      ((h g) f)

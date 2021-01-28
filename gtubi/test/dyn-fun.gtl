@@ -1,0 +1,5 @@
+(fun g : a -> int -> a.
+  (fun f: ?.
+   (fun x : b. (g x) x) (f 1)
+  )
+)

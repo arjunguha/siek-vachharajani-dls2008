@@ -1,0 +1,2 @@
+(fun f : ? -> int -> int.
+ fun x : a. f x x)

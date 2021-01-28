@@ -1,0 +1,11 @@
+/*
+  This should fail. We don't want to deduce alpha = ?
+  (which would allow this to type check) because
+  by annotation x : alpha the programmer is saying he
+  wants to move towards static typing, and there is
+  no real type (not ?) that will work there.
+ */
+(fun f : int -> (bool -> int).
+ (fun g : int -> ?. 
+  ((fun x : alpha. (f x x)) (g 1))
+  ))

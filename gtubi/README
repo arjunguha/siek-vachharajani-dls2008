@@ -1,0 +1,32 @@
+To build the type inferencer, named gtlc, type 'make'.
+To run the inferencer, type:
+
+./gtlc <input-file>
+
+The output will either be the type of the program given in the
+input-file, or an error message saying that the program is not
+well-typed.
+
+The inferencer is written in Objective Caml and was tested
+with version 3.09.2.
+
+The grammar for the input language is as follows.
+
+type ::= variable
+       | "int"
+       | "bool"
+       | "?"
+       | type "->" type
+       | "(" type ")"
+
+expr ::= variable
+       | integer
+       | "true"
+       | "false"
+       | "fun" variable [":" type] "." expr
+       | expr expr
+       | "let" variable "=" expr "in" expr
+       | "(" expr ")"
+
+
+The 'test' subdirectory contains several examples.

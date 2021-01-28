@@ -1,0 +1,12 @@
+/*
+  We deduce a = ?.
+  According to the type system, any other type would
+  be allowed, but the type system is too permissive here.
+  Any other type would cause a cast to be inserted for
+  which there exists a g that would cause it to fail at runtime.
+*/
+
+(fun f : ? -> int.
+ (fun g : int -> ?.
+  (fun h : a -> a.
+    f (h (g 1)))))

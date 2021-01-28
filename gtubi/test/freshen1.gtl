@@ -1,0 +1,5 @@
+(fun f : ? -> int.
+ (fun x : int.
+  (fun y : bool.
+   (fun g : int -> int -> int.
+    ((g (f x)) (f y))))))

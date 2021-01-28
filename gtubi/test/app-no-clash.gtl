@@ -1,0 +1,9 @@
+/*
+  This example uses the App1 rule:
+
+  G |- e1 : ?   G |- e2 : tau
+  ---------------------------
+       G |- e1 e2 : ?
+*/
+
+(fun f : ?. f 1)

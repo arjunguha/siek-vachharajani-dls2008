@@ -1,0 +1,13 @@
+let add1 : int -> int = 
+  (fun x : int. x) in 
+let map : (a -> b) -> (int -> a) -> (int -> b) = 
+  (fun f : (a -> b). (fun ls : (int -> a). (fun i : int. f (ls i))))
+in
+let filter : (c -> bool) -> (int -> c) -> (int -> c) = 
+  (fun f : (c -> bool). fun ls : (int -> c). (fun i : int. ls i))
+in
+let isnumber : ? -> bool = 
+  (fun x. true) 
+in
+let l : (int -> ?) = (fun i. (fun y. y) true) in 
+  map add1 (filter isnumber l)

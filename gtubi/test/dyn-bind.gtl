@@ -1,0 +1,6 @@
+(fun f:int->int .
+  (fun y:? .
+    (f ((fun z:int . y) 1))
+  )
+)
+

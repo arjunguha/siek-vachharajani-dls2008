@@ -1,0 +1,18 @@
+/*
+
+<< (T11 -> T12) -> T2 <= (S11 -> S12) -> S2 >> 
+((fun f. f _) (fun y. _))
+-->
+<< T2 <= S2 >>
+((fun f. f _) << S11 -> S12 <= T11 -> T12 >> (fun y. _))
+
+*/
+
+let h : (?->int)->int =
+    (fun f : (?->int). 
+     (f true))
+in
+let g : int->int = 
+    (fun y : int. y)
+in   
+  (h g)

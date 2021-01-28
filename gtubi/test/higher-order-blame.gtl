@@ -1,0 +1,7 @@
+let
+    f = (fun x. ((fun y. y) true))
+in 
+  (fun g : int -> int. 
+     (fun h : int -> int.
+       (h (g 1))))
+    f f

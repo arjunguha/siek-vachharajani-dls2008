@@ -14,6 +14,8 @@ With two omissions:
   was that one desugared let-expressions to applications, whereas the other
   did not. The copy in the repository supports let-expressions directly.
 
+*I have modified the main program to print the full program after type
+inference.*
 
 The code in the root directory uses Docker to create an operating environment
 that supports an older version of OCaml that can compile and run the code.
@@ -28,3 +30,13 @@ make
 To access the environment:
 
 ./gtubi.sh
+
+Extra Materials
+===============
+
+The /benchmarks directory has programs from several sources, rewritten for
+this tool:
+
+- Zeina Migeed and Jens Palsberg. What is Decidable about Gradual Types? 
+  POPL 2020 (the migeed-*.gtl files)
+- Some of our own benchmarks (the adversarial-*.gtl files)

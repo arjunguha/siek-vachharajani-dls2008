@@ -48,10 +48,11 @@ let rec cast_error_msg ctx v =
 
 let insert_casts_and_run e =
   let (ct,ce) = Cast_ast.insert_casts [] e in
-    (*printf "**Cast_ast**\n" ;
-    printf "type: %s\n" (Cast_ast.print_type ct) ; 
-    printf "expression: \n %s\n" (Cast_ast.print_expr ce) 
-    printf "\n";*)
+    printf "Type after migration:\n" ;
+    printf "%s\n" (Cast_ast.print_type ct) ; 
+    printf "Migration:\n";
+    print_string (Cast_ast.print_expr ce);
+    printf "\n *** Running the program ***";
     try 
       let result = Cast_boxinterp.run ce ct
       in
@@ -77,7 +78,7 @@ let _ =
     (*printf "expression: %s\n" (Graph_ast.print_expr e);*)
   let t = infer e in
     (*printf "**Graph_ast**\n" ;*)
-    printf "type: %s\n" (print_node t) ;
+    (* printf "type: %s\n" (print_node t) ; *)
     (*printf "expression: %s\n" (Graph_ast.print_expr e) ;*)
     (*printf "\n" ;*)
     insert_casts_and_run e

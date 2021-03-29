@@ -7,12 +7,13 @@ The directory /gtubi contains code downloaded from:
 
 http://ece.colorado.edu/~siek/gtubi.tar.gz
 
-With two omissions:
+With these changes:
 
 - I deleted the .svn directories
 - There were two copies of the tool. As far as I could tell, the only difference
   was that one desugared let-expressions to applications, whereas the other
   did not. The copy in the repository supports let-expressions directly.
+- I modified the Makefile to use ocamlopt
 
 *I have modified the main program to print the full program after type
 inference.*
@@ -30,6 +31,8 @@ make
 To access the environment:
 
 ./gtubi.sh
+
+On a Linux host, you can directly run `./gtlc` instead of using the Docker environment.
 
 Extra Materials
 ===============

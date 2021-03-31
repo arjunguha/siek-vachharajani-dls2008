@@ -1,12 +1,7 @@
-
-MLC		= ocamlc
-MLC_OUT		= cmo
-ML_LIB		= cma
-MLC_FLAGS	= -g
-#MLC		= ocamlopt 
-#MLC_OUT		= cmx
-#ML_LIB		= cmxa
-#MLC_FLAGS	= 
+MLC		= ocamlopt 
+MLC_OUT		= cmx
+ML_LIB		= cmxa
+MLC_FLAGS	= 
 
 LEX		= ocamllex
 YACC		= ocamlyacc

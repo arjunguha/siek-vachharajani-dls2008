@@ -1,0 +1,6 @@
+/gtubi/*.cmi
+/gtubi/*.cmx
+/gtubi/*.o
+/gtubi/parser.output
+/gtubi/gtlc
+/gtlc

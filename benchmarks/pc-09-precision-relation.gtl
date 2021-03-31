@@ -1,2 +1,2 @@
 fun add : int -> int -> int .
-  (fun f. add (f true) ((fun g.g 5) f)) (fun x.5)
+  (fun f : t1 . add (f true) ((fun g : t2 .g 5) f)) (fun x : t3 .5)

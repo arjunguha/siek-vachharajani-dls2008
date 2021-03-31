@@ -1,1 +1,1 @@
-fun f. fun x. x (f x)
+fun f : t1 . fun x : t2. x (f x)

@@ -1,1 +1,0 @@
-(fun x : a . fun y : b . y (x (fun x : c . x)) (x (fun b : d . fun c : e . b))) (fun d : f.d d)

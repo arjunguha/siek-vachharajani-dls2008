@@ -1,1 +1,0 @@
-(fun h : a . (fun x : b . h (x x)) (fun x : c .h x x)) (fun e : d.fun m : e.m (fun x : f.x) (fun m : g. fun n : h .(e m) (e n)) (fun m : i .fun v : j .e (m v)))

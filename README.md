@@ -14,6 +14,8 @@ With these changes:
   was that one desugared let-expressions to applications, whereas the other
   did not. The copy in the repository supports let-expressions directly.
 - I modified the Makefile to use ocamlopt
+- Omitting a type annotation produces a metavariable and not a ?
+- Some hacks to support an infix +
 
 *I have modified the main program to print the full program after type
 inference.*
@@ -33,13 +35,3 @@ To access the environment:
 ./gtubi.sh
 
 On a Linux host, you can directly run `./gtlc` instead of using the Docker environment.
-
-Extra Materials
-===============
-
-The /benchmarks directory has programs from several sources, rewritten for
-this tool:
-
-- Zeina Migeed and Jens Palsberg. What is Decidable about Gradual Types? 
-  POPL 2020 (the migeed-*.gtl files)
-- Some of our own benchmarks (the adversarial-*.gtl files)

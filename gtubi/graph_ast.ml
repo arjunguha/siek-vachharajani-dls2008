@@ -274,3 +274,10 @@ let create_var i x =
 			rank=0} in
     (g#get u).representative <- u;
     create_sharing u
+
+let gensym = ref 0
+
+let gensym_var i =
+  let x = Format.sprintf "_t%d" !gensym in
+  incr gensym;
+  create_var i x

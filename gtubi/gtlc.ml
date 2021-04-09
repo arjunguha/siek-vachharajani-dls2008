@@ -48,34 +48,20 @@ let rec cast_error_msg ctx v =
 
 let insert_casts_and_run e =
   let (ct,ce) = Cast_ast.insert_casts [] e in
-    printf "Type after migration:\n" ;
-    printf "%s\n" (Cast_ast.print_type ct) ; 
-    printf "Migration:\n";
-    print_string (Cast_ast.print_expr ce);
-    printf "\n *** Running the program ***";
-    try 
-      let result = Cast_boxinterp.run ce ct
-      in
-	if(Cast_boxinterp.is_value result) then
-	  printf "result: %s\n" (Cast_boxinterp.print_value result)
-	else
-	  error UNKNOWN ("result not a value: " ^ (Cast_ast.print_expr result))
-    with
-      | Cast_boxinterp.CastFailed (i, j, ctx, t, v, e) ->
-          printf "%s run-time type error:\nexpected a value of type %s, but got %s\ncast fail: %s\nparticipating location %s\n" 
-	    (sprintInfo i) 
-	    (Cast_ast.print_ty_ctx ctx t)
-	    (cast_error_msg ctx v)
-            (Cast_ast.print_expr e)
-	    (sprintInfo j) 
-      | Cast_boxinterp.Stuck (i, e) ->
-          printf "%s Stuck:\n%s\n" (sprintInfo i) (Cast_ast.print_expr e)
+  (* Skip the add *)
+  (match ce with
+    | LamE (_, _, _, b) -> print_string (Cast_ast.print_expr b))
+
 
 let _ =
   let inFile = parseArgs() in
   let _ = Filename.chop_extension inFile in
   let e = parseFile inFile in
-    (*printf "expression: %s\n" (Graph_ast.print_expr e);*)
+  let e = LamE (
+    UNKNOWN, "add", 
+    create_arrow UNKNOWN (create_int UNKNOWN) 
+      (create_arrow UNKNOWN (create_int UNKNOWN) (create_int UNKNOWN)),
+    e) in
   let t = infer e in
     (*printf "**Graph_ast**\n" ;*)
     (* printf "type: %s\n" (print_node t) ; *)

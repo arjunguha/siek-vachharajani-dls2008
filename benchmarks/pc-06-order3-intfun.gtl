@@ -1,2 +1,0 @@
-fun add : int -> int -> int . 
-  fun f : t1 . fun g : t2 . (f g) (add (g 10))

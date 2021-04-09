@@ -1,3 +1,0 @@
-fun add : int -> int -> int . 
-  fun x : a . 
-    x (add x 1)

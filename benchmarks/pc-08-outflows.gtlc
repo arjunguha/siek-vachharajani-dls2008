@@ -1,2 +1,0 @@
-fun add : int -> int -> int .
-  (fun x : t1 . add (x 5) x) 5

@@ -1,2 +1,0 @@
-fun add : int -> int -> int . 
-  (fun f . f true) (fun x . add x 100)

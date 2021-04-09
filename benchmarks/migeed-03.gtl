@@ -1,2 +1,0 @@
-fun add : int -> int -> int . 
-  fun x : a . add (x 4) (x true)

@@ -34,6 +34,7 @@ let reservedWords = [
   ("bool", fun i -> BOOLTY i);
   ("fun", fun i -> LAMBDA i);
   ("true", fun i -> TRUE i);
+  ("+", fun i -> PLUS i);
   ("false", fun i -> FALSE i);
   ("let", fun i -> LET i);
   ("in", fun i -> IN i);

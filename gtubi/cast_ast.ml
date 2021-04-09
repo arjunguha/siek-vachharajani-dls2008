@@ -124,6 +124,8 @@ let rec print_expr e =
     | LamE (i, x, t, e) -> 
 	sprintf "(fun %s : %s. %s)" x 
 	  (print_type t) (print_expr e)
+    | AppE (_, AppE (_, VarE (_, "add"), e1), e2) ->
+      sprintf "(%s + %s)" (print_expr e1) (print_expr e2)
     | AppE (i, e1, e2) ->
 	sprintf "(%s %s)" (print_expr e1) (print_expr e2)
     | CastE (i, ctx, t, e) ->

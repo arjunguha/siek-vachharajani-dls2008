@@ -53,6 +53,7 @@ exception ParseError
 %token <Support.Error.info> IN
 %token <Support.Error.info> COLON
 %token <Support.Error.info> ARROW
+%token <Support.Error.info> PLUS
 
 %nonassoc simple_prec
 %nonassoc LAMBDA DOT 
@@ -84,6 +85,7 @@ simple_expr:
 | INT            { IntE ($1.i, $1.v) }
 | TRUE           { BoolE ($1, true) }
 | FALSE           { BoolE ($1, false) }
+| simple_expr PLUS simple_expr { AppE ($2, AppE ($2, VarE($2, "add"), $1), $3) }
 | LPAREN expr RPAREN { $2 }
 | LET NAME EQUAL expr IN expr { LetE ($1, $2.v, $4, $6) }
 ;
@@ -104,7 +106,7 @@ expr:
 | LAMBDA NAME opt_typ DOT expr { 
   let t = 
     (match $3 with
-	None -> create_dyn $1
+	None -> gensym_var $1
       | Some t -> t) in
     LamE ($1, $2.v, t, $5)
 }
